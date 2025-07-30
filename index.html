@@ -588,77 +588,78 @@
         }
         
         /* Loading Animation */
-        .loader {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: var(--dark);
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            z-index: 9999;
-            transition: opacity 0.5s, visibility 0.5s;
-        }
-        
-        .loader.hidden {
-            opacity: 0;
-            visibility: hidden;
-        }
-        
-        .loader-circle {
-            width: 50px;
-            height: 50px;
-            border: 5px solid rgba(110, 65, 226, 0.2);
-            border-top: 5px solid var(--primary);
-            border-radius: 50%;
-            animation: spin 1s linear infinite;
-        }
-        
-        @keyframes spin {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
-        }
-        
-        /* Tooltip */
-        .tooltip {
-            position: relative;
-        }
-        
-        .tooltip .tooltip-text {
-            visibility: hidden;
-            width: 120px;
-            background-color: rgba(10, 11, 26, 0.9);
-            color: #fff;
-            text-align: center;
-            border-radius: 6px;
-            padding: 5px;
-            position: absolute;
-            z-index: 1;
-            bottom: 125%;
-            left: 50%;
-            transform: translateX(-50%);
-            opacity: 0;
-            transition: opacity 0.3s;
-            border: 1px solid var(--primary);
-        }
-        
-        .tooltip .tooltip-text::after {
-            content: "";
-            position: absolute;
-            top: 100%;
-            left: 50%;
-            margin-left: -5px;
-            border-width: 5px;
-            border-style: solid;
-            border-color: var(--primary) transparent transparent transparent;
-        }
-        
-        .tooltip:hover .tooltip-text {
-            visibility: visible;
-            opacity: 1;
-        }
+ /* Add this to your CSS section */
+.loader {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: var(--dark);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+    transition: opacity 0.5s, visibility 0.5s;
+}
+
+.loader-logo {
+    font-size: 3rem;
+    font-weight: 900;
+    margin-bottom: 2rem;
+    background: linear-gradient(90deg, var(--primary), var(--secondary), var(--accent));
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    animation: colorRotate 3s linear infinite;
+}
+
+.loader-container {
+    display: flex;
+    gap: 10px;
+}
+
+.loader-dot {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: var(--secondary);
+    animation: bounce 1.5s infinite ease-in-out;
+}
+
+.loader-dot:nth-child(1) {
+    animation-delay: 0s;
+    background: var(--primary);
+}
+
+.loader-dot:nth-child(2) {
+    animation-delay: 0.2s;
+    background: var(--secondary);
+}
+
+.loader-dot:nth-child(3) {
+    animation-delay: 0.4s;
+    background: var(--accent);
+}
+
+@keyframes bounce {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-30px);
+    }
+}
+
+@keyframes colorRotate {
+    from {
+        filter: hue-rotate(0deg);
+    }
+    to {
+        filter: hue-rotate(360deg);
+    }
+}
         
         /* Dark mode toggle */
         .theme-toggle {
@@ -827,13 +828,161 @@
             }
         }
 
+        /* Add these styles to your existing CSS */
+.education-timeline {
+    perspective: 1000px;
+}
+
+.education-card-left, .education-card-right {
+    transition: all 0.5s ease;
+    transform-style: preserve-3d;
+}
+
+.education-card-left:hover, .education-card-left:active {
+    transform: translateX(20px) rotateY(5deg);
+}
+
+.education-card-right:hover, .education-card-right:active {
+    transform: translateX(-20px) rotateY(-5deg);
+}
+
+.glow-on-hover {
+    transition: box-shadow 0.3s ease;
+}
+
+.glow-on-hover:hover, .glow-on-hover:active {
+    box-shadow: 0 0 20px rgba(0, 255, 209, 0.5);
+}
+
+.transform-style-preserve-3d {
+    transform-style: preserve-3d;
+}
+
+.backface-hidden {
+    backface-visibility: hidden;
+}
+
+.project-3d-container {
+    perspective: 1000px;
+}
+
+.project-3d-inner {
+    transform-style: preserve-3d;
+    transition: transform 1s;
+}
+
+.project-3d-face {
+    backface-visibility: hidden;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.project-3d-container:hover .project-3d-inner {
+    transform: rotateY(180deg);
+}
+
+/* Gold Medalist Badge */
+@keyframes medal-glow {
+    0% { box-shadow: 0 0 10px rgba(212, 175, 55, 0.5); }
+    50% { box-shadow: 0 0 20px rgba(212, 175, 55, 0.9); }
+    100% { box-shadow: 0 0 10px rgba(212, 175, 55, 0.5); }
+}
+
+.gold-medal {
+    position: relative;
+    animation: medal-glow 2s infinite;
+}
+
+.gold-medal::after {
+    content: "★";
+    position: absolute;
+    top: -5px;
+    right: -5px;
+    color: gold;
+    font-size: 1.5rem;
+    text-shadow: 0 0 5px rgba(0,0,0,0.5);
+}
+
+/* Mobile Project Cards */
+@media (max-width: 768px) {
+    .project-card {
+        perspective: none;
+    }
+    
+    .project-card-inner {
+        transform-style: flat;
+        height: auto;
+    }
+    
+    .project-card-front, 
+    .project-card-back {
+        position: relative;
+        height: auto;
+        transform: none !important;
+        backface-visibility: visible;
+    }
+    
+    .project-card-back {
+        display: none;
+    }
+    
+    .project-card:hover .project-card-front {
+        transform: none !important;
+    }
+    
+    /* Mobile toggle for project details */
+    .project-card-mobile-toggle {
+        display: block;
+        width: 100%;
+        padding: 0.5rem;
+        text-align: center;
+        background: rgba(110, 65, 226, 0.2);
+        border-top: 1px solid var(--primary);
+        cursor: pointer;
+    }
+    
+    .project-card.active .project-card-back {
+        display: block;
+    }
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .education-card-left:hover, .education-card-left:active,
+    .education-card-right:hover, .education-card-right:active {
+        transform: none;
+    }
+    
+    .education-timeline {
+        padding-left: 2rem;
+    }
+    
+    .education-timeline > div {
+        margin-left: 0;
+    }
+    
+    .project-3d-container {
+        height: 80vh;
+    }
+}
+
     </style>
 </head>
 <body>
     <!-- Loading Animation -->
-    <div class="loader">
-        <div class="loader-circle"></div>
+<div class="loader">
+    <div class="loader-logo">RAHUL BARUAH</div>
+    <div class="loader-container">
+        <div class="loader-dot"></div>
+        <div class="loader-dot"></div>
+        <div class="loader-dot"></div>
     </div>
+</div>
     
     <!-- Particles Background -->
     <div id="particles-js"></div>
@@ -1110,181 +1259,209 @@
         </div>
     </section>
 
-    <!-- Projects Section -->
-    <section id="projects" class="py-20 px-4">
-        <div class="container mx-auto">
-            <h2 class="text-3xl md:text-4xl font-bold text-center mb-4">Featured <span class="gradient-text">Projects</span></h2>
-            <p class="text-center text-gray-300 max-w-2xl mx-auto mb-12">Innovative solutions that showcase my multidisciplinary approach</p>
+<!-- Add this in the Experience section after your professional timeline -->
+<section id="education" class="py-20 px-4 bg-gradient-to-b from-dark to-gray-900">
+    <div class="container mx-auto">
+        <h2 class="text-3xl md:text-4xl font-bold text-center mb-4">Academic <span class="gradient-text">Excellence</span></h2>
+        <p class="text-center text-gray-300 max-w-2xl mx-auto mb-12">My educational journey in cutting-edge computer science</p>
+
+        <!-- 3D Education Timeline -->
+        <div class="education-timeline max-w-4xl mx-auto relative">
+            <!-- Timeline Connector -->
+            <div class="absolute left-1/2 h-full w-1 bg-gradient-to-b from-primary to-secondary transform -translate-x-1/2 z-0"></div>
             
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <!-- Project 1 -->
-                <div class="project-card">
-                    <div class="project-card-inner relative w-full h-80">
-                        <div class="project-card-front absolute w-full h-full p-6 rounded-xl flex flex-col justify-between">
-                            <div>
-                                <h3 class="text-xl font-bold mb-2">NeuralStyle AI</h3>
-                                <p class="text-gray-300">AI-powered design assistant that transforms sketches into production-ready UI code</p>
+            <!-- MCA Card - Left Side -->
+            <div class="mb-16 relative z-10 education-card-left">
+                <div class="flex flex-col md:flex-row items-center">
+                    <!-- 3D Degree Badge -->
+                    <div class="w-32 h-32 md:w-40 md:h-40 mb-6 md:mb-0 md:mr-8 transform-style-preserve-3d transition-transform duration-1000 hover:rotate-y-180">
+                        <div class="w-full h-full relative transform-style-preserve-3d">
+                            <div class="absolute w-full h-full backface-hidden bg-primary rounded-full flex items-center justify-center shadow-xl border-4 border-secondary transform rotate-y-0">
+                                <i class="fas fa-brain text-4xl text-white"></i>
                             </div>
-                            <div class="bg-gray-800 rounded-lg overflow-hidden h-40">
-                                <img src="https://placehold.co/600x400" alt="AI interface transforming a hand-drawn wireframe into a polished web design with React components" class="w-full h-full object-cover" />
+                            <div class="absolute w-full h-full backface-hidden bg-secondary rounded-full flex items-center justify-center shadow-xl border-4 border-primary transform rotate-y-180">
+                                <span class="text-xs font-bold text-dark text-center px-2">MCA in AI<br>Gold Medalist</span>
                             </div>
                         </div>
-                        <div class="project-card-back absolute w-full h-full p-6 rounded-xl flex flex-col justify-center">
-                            <h3 class="text-xl font-bold mb-4 gradient-text">Technologies</h3>
-                            <ul class="space-y-2 text-gray-300">
-                                <li class="flex items-center">
-                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2 text-secondary" viewBox="0 0 20 20" fill="currentColor">
-                                        <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-8.707l-3-3a1 1 0 00-1.414 0l-3 3a1 1 0 001.414 1.414L9 9.414V15a1 1 0 102 0V9.414l1.293 1.293a1 1 0 001.414-1.414z" clip-rule="evenodd" />
-                                    </svg>
-                                    TensorFlow + Computer Vision
-                                </li>
-                                <li class="flex items-center">
-                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2 text-secondary" viewBox="0 0 20 20" fill="currentColor">
-                                        <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-8.707l-3-3a1 1 0 00-1.414 0l-3 3a1 1 0 001.414 1.414L9 9.414V15a1 1 0 102 0V9.414l1.293 1.293a1 1 0 001.414-1.414z" clip-rule="evenodd" />
-                                    </svg>
-                                    React + Next.js
-                                </li>
-                                <li class="flex items-center">
-                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2 text-secondary" viewBox="0 0 20 20" fill="currentColor">
-                                        <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-8.707l-3-3a1 1 0 00-1.414 0l-3 3a1 1 0 001.414 1.414L9 9.414V15a1 1 0 102 0V9.414l1.293 1.293a1 1 0 001.414-1.414z" clip-rule="evenodd" />
-                                    </svg>
-                                    GPT-4 Integration
-                                </li>
-                            </ul>
-                            <button class="mt-6 px-4 py-2 rounded-lg btn-outline font-semibold transition">View Case Study</button>
+                    </div>
+                    
+                    <div class="flex-1 skill-card p-6 rounded-xl border-l-4 border-secondary glow-on-hover">
+                        <h3 class="text-2xl font-bold mb-2 gradient-text">Master of Computer Application</h3>
+                        <h4 class="text-lg text-secondary mb-3">Specialization in Artificial Intelligence</h4>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="px-3 py-1 rounded-full bg-primary bg-opacity-20 text-sm">Python</span>
+                            <span class="px-3 py-1 rounded-full bg-primary bg-opacity-20 text-sm">Machine Learning</span>
+                            <span class="px-3 py-1 rounded-full bg-primary bg-opacity-20 text-sm">Deep Learning</span>
+                            <span class="px-3 py-1 rounded-full bg-primary bg-opacity-20 text-sm">Neural Networks</span>
+                        </div>
+                        <div class="space-y-3">
+                            <div class="flex items-start">
+                                <div class="flex-shrink-0 h-6 w-6 text-secondary mr-2 mt-1">
+                                    <i class="fas fa-trophy"></i>
+                                </div>
+                                <p class="text-gray-300">Gold Medalist for academic excellence in AI research</p>
+                            </div>
+                            <div class="flex items-start">
+                                <div class="flex-shrink-0 h-6 w-6 text-secondary mr-2 mt-1">
+                                    <i class="fas fa-file-alt"></i>
+                                </div>
+                                <p class="text-gray-300">Published paper on "Voice Recognition using Machine Learning" in International Journal of Advanced Computer Science</p>
+                            </div>
                         </div>
                     </div>
                 </div>
-                
-                <!-- Project 2 -->
-                <div class="project-card">
-                    <div class="project-card-inner relative w-full h-80">
-                        <div class="project-card-front absolute w-full h-full p-6 rounded-xl flex flex-col justify-between">
-                            <div>
-                                <h3 class="text-xl font-bold mb-2">Quantum UI</h3>
-                                <p class="text-gray-300">Dynamic design system that adapts to user behavior and preferences in real-time</p>
-                            </div>
-                            <div class="bg-gray-800 rounded-lg overflow-hidden h-40">
-                                <img src="https://placehold.co/600x400" alt="Interactive dashboard showing UI components changing layout and style based on user interaction patterns" class="w-full h-full object-cover" />
-                            </div>
+            </div>
+
+            <!-- BCA Card - Right Side -->
+            <div class="mb-16 relative z-10 education-card-right">
+                <div class="flex flex-col md:flex-row items-center">
+                    <div class="flex-1 skill-card p-6 rounded-xl border-r-4 border-primary glow-on-hover order-1 md:order-2">
+                        <h3 class="text-2xl font-bold mb-2 gradient-text">Bachelor of Computer Application</h3>
+                        <h4 class="text-lg text-primary mb-3">Specialization in Web Development</h4>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="px-3 py-1 rounded-full bg-secondary bg-opacity-20 text-sm">HTML5</span>
+                            <span class="px-3 py-1 rounded-full bg-secondary bg-opacity-20 text-sm">CSS3</span>
+                            <span class="px-3 py-1 rounded-full bg-secondary bg-opacity-20 text-sm">JavaScript</span>
+                            <span class="px-3 py-1 rounded-full bg-secondary bg-opacity-20 text-sm">React</span>
+                            <span class="px-3 py-1 rounded-full bg-secondary bg-opacity-20 text-sm">PHP</span>
+                            <span class="px-3 py-1 rounded-full bg-secondary bg-opacity-20 text-sm">MySQL</span>
                         </div>
-                        <div class="project-card-back absolute w-full h-full p-6 rounded-xl flex flex-col justify-center">
-                            <h3 class="text-xl font-bold mb-4 gradient-text">Technologies</h3>
-                            <ul class="space-y-2 text-gray-300">
-                                <li class="flex items-center">
-                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2 text-secondary" viewBox="0 0 20 20" fill="currentColor">
-                                        <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-8.707l-3-3a1 1 0 00-1.414 0l-3 3a1 1 0 001.414 1.414L9 9.414V15a1 1 0 102 0V9.414l1.293 1.293a1 1 0 001.414-1.414z" clip-rule="evenodd" />
-                                    </svg>
-                                    Reinforcement Learning
-                                </li>
-                                <li class="flex items-center">
-                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2 text-secondary" viewBox="0 0 20 20" fill="currentColor">
-                                        <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-8.707l-3-3a1 1 0 00-1.414 0l-3 3a1 1 0 001.414 1.414L9 9.414V15a1 1 0 102 0V9.414l1.293 1.293a1 1 0 001.414-1.414z" clip-rule="evenodd" />
-                                    </svg>
-                                    Three.js + WebGL
-                                </li>
-                                <li class="flex items-center">
-                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2 text-secondary" viewBox="0 0 20 20" fill="currentColor">
-                                        <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-8.707l-3-3a1 1 0 00-1.414 0l-3 3a1 1 0 001.414 1.414L9 9.414V15a1 1 0 102 0V9.414l1.293 1.293a1 1 0 001.414-1.414z" clip-rule="evenodd" />
-                                    </svg>
-                                    Behavioral Analytics
-                                </li>
-                            </ul>
-                            <button class="mt-6 px-4 py-2 rounded-lg btn-outline font-semibold transition">View Case Study</button>
-                        </div>
+                        <p class="text-gray-300">Developed multiple full-stack web applications with modern frameworks and databases.</p>
                     </div>
-                </div>
-                
-                <!-- Project 3 -->
-                <div class="project-card">
-                    <div class="project-card-inner relative w-full h-80">
-                        <div class="project-card-front absolute w-full h-full p-6 rounded-xl flex flex-col justify-between">
-                            <div>
-                                <h3 class="text-xl font-bold mb-2">Hololink</h3>
-                                <p class="text-gray-300">AR collaboration platform for designers and developers</p>
+                    
+                    <!-- 3D Degree Badge -->
+                    <div class="w-32 h-32 md:w-40 md:h-40 mb-6 md:mb-0 md:ml-8 transform-style-preserve-3d transition-transform duration-1000 hover:rotate-y-180 order-2 md:order-1">
+                        <div class="w-full h-full relative transform-style-preserve-3d">
+                            <div class="absolute w-full h-full backface-hidden bg-secondary rounded-full flex items-center justify-center shadow-xl border-4 border-primary transform rotate-y-0">
+                                <i class="fas fa-code text-4xl text-dark"></i>
                             </div>
-                            <div class="bg-gray-800 rounded-lg overflow-hidden h-40">
-                                <img src="https://placehold.co/600x400" alt="Mixed reality workspace showing designers collaborating on 3D UI elements floating in physical space" class="w-full h-full object-cover" />
+                            <div class="absolute w-full h-full backface-hidden bg-primary rounded-full flex items-center justify-center shadow-xl border-4 border-secondary transform rotate-y-180">
+                                <span class="text-xs font-bold text-white text-center px-2">BCA in Web Development</span>
                             </div>
-                        </div>
-                        <div class="project-card-back absolute w-full h-full p-6 rounded-xl flex flex-col justify-center">
-                            <h3 class="text-xl font-bold mb-4 gradient-text">Technologies</h3>
-                            <ul class="space-y-2 text-gray-300">
-                                <li class="flex items-center">
-                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2 text-secondary" viewBox="0 0 20 20" fill="currentColor">
-                                        <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-8.707l-3-3a1 1 0 00-1.414 0l-3 3a1 1 0 001.414 1.414L9 9.414V15a1 1 0 102 0V9.414l1.293 1.293a1 1 0 001.414-1.414z" clip-rule="evenodd" />
-                                    </svg>
-                                    Unity + ARKit/ARCore
-                                </li>
-                                <li class="flex items-center">
-                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2 text-secondary" viewBox="0 0 20 20" fill="currentColor">
-                                        <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-8.707l-3-3a1 1 0 00-1.414 0l-3 3a1 1 0 001.414 1.414L9 9.414V15a1 1 0 102 0V9.414l1.293 1.293a1 1 0 001.414-1.414z" clip-rule="evenodd" />
-                                    </svg>
-                                    WebRTC + WebXR
-                                </li>
-                                <li class="flex items-center">
-                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2 text-secondary" viewBox="0 0 20 20" fill="currentColor">
-                                        <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-8.707l-3-3a1 1 0 00-1.414 0l-3 3a1 1 0 001.414 1.414L9 9.414V15a1 1 0 102 0V9.414l1.293 1.293a1 1 0 001.414-1.414z" clip-rule="evenodd" />
-                                    </svg>
-                                    Spatial Computing
-                                </li>
-                            </ul>
-                            <button class="mt-6 px-4 py-2 rounded-lg btn-outline font-semibold transition">View Case Study</button>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-    </section>
-    
-    <!-- Experience Section -->
-    <section id="experience" class="py-20 px-4">
-        <div class="container mx-auto">
-            <h2 class="text-3xl md:text-4xl font-bold text-center mb-4">Professional <span class="gradient-text">Journey</span></h2>
-            <p class="text-center text-gray-300 max-w-2xl mx-auto mb-12">My career path through innovation and technology leadership</p>
+
+        <!-- 3D Project Showcase -->
+       <!-- Projects Section -->
+<section id="projects" class="py-20 px-4">
+    <div class="container mx-auto">
+        <h2 class="text-3xl md:text-4xl font-bold text-center mb-4">Featured <span class="gradient-text">Projects</span></h2>
+        <p class="text-center text-gray-300 max-w-2xl mx-auto mb-12">Innovative solutions that showcase my multidisciplinary approach</p>
+        
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <!-- Project 1 - Mobile Enhanced -->
+            <div class="project-card group">
+                <div class="project-card-inner relative w-full h-80 md:h-96">
+                    <div class="project-card-front absolute w-full h-full p-6 rounded-xl flex flex-col justify-between bg-gray-900 transition-all duration-500 group-hover:bg-gray-800">
+                        <div>
+                            <h3 class="text-xl font-bold mb-2">NeuralStyle AI</h3>
+                            <p class="text-gray-300">AI-powered design assistant that transforms sketches into production-ready UI code</p>
+                        </div>
+                        <div class="bg-gray-800 rounded-lg overflow-hidden h-40 transition-all duration-300 group-hover:h-32">
+                            <img src="https://placehold.co/600x400" alt="AI interface" class="w-full h-full object-cover" />
+                        </div>
+                    </div>
+                    <div class="project-card-back absolute w-full h-full p-6 rounded-xl flex flex-col justify-center bg-gray-800">
+                        <div class="mb-4">
+                            <h3 class="text-xl font-bold gradient-text">Technologies</h3>
+                            <div class="h-1 w-16 bg-secondary mt-2 mb-4"></div>
+                        </div>
+                        <ul class="space-y-2 text-gray-300">
+                            <li class="flex items-center">
+                                <span class="w-2 h-2 bg-secondary rounded-full mr-2"></span>
+                                TensorFlow + Computer Vision
+                            </li>
+                            <li class="flex items-center">
+                                <span class="w-2 h-2 bg-secondary rounded-full mr-2"></span>
+                                React + Next.js
+                            </li>
+                            <li class="flex items-center">
+                                <span class="w-2 h-2 bg-secondary rounded-full mr-2"></span>
+                                GPT-4 Integration
+                            </li>
+                        </ul>
+                        <button class="mt-6 px-4 py-2 rounded-lg btn-outline font-semibold transition transform group-hover:scale-105">View Case Study</button>
+                    </div>
+                </div>
+            </div>
             
-            <div class="max-w-3xl mx-auto space-y-8">
-                <!-- Experience 1 -->
-                <div class="timeline-item">
-                    <div class="timeline-dot"></div>
-                    <div class="skill-card p-6 rounded-xl">
-                        <div class="flex flex-col md:flex-row justify-between mb-2">
-                            <h3 class="text-xl font-bold">Technical Support Assistant</h3>
-                            <span class="text-secondary">2024 - Present</span>
+            <!-- Project 2 - Mobile Enhanced -->
+            <div class="project-card group">
+                <div class="project-card-inner relative w-full h-80 md:h-96">
+                    <div class="project-card-front absolute w-full h-full p-6 rounded-xl flex flex-col justify-between bg-gray-900 transition-all duration-500 group-hover:bg-gray-800">
+                        <div>
+                            <h3 class="text-xl font-bold mb-2">Quantum UI</h3>
+                            <p class="text-gray-300">Dynamic design system that adapts to user behavior and preferences in real-time</p>
                         </div>
-                        <h4 class="text-lg text-primary mb-3">FPD&CA, C-DC office Margherita, Tinsukia , Assam. 786181</h4>
-                        <p class="text-gray-300">Working in the official govermenet website i.e., RCMS and giving technical guidance and consultant to the department</p>
+                        <div class="bg-gray-800 rounded-lg overflow-hidden h-40 transition-all duration-300 group-hover:h-32">
+                            <img src="https://placehold.co/600x400" alt="Interactive dashboard" class="w-full h-full object-cover" />
+                        </div>
+                    </div>
+                    <div class="project-card-back absolute w-full h-full p-6 rounded-xl flex flex-col justify-center bg-gray-800">
+                        <div class="mb-4">
+                            <h3 class="text-xl font-bold gradient-text">Technologies</h3>
+                            <div class="h-1 w-16 bg-secondary mt-2 mb-4"></div>
+                        </div>
+                        <ul class="space-y-2 text-gray-300">
+                            <li class="flex items-center">
+                                <span class="w-2 h-2 bg-secondary rounded-full mr-2"></span>
+                                Reinforcement Learning
+                            </li>
+                            <li class="flex items-center">
+                                <span class="w-2 h-2 bg-secondary rounded-full mr-2"></span>
+                                Three.js + WebGL
+                            </li>
+                            <li class="flex items-center">
+                                <span class="w-2 h-2 bg-secondary rounded-full mr-2"></span>
+                                Behavioral Analytics
+                            </li>
+                        </ul>
+                        <button class="mt-6 px-4 py-2 rounded-lg btn-outline font-semibold transition transform group-hover:scale-105">View Case Study</button>
                     </div>
                 </div>
-                
-                <!-- Experience 2 -->
-                <div class="timeline-item">
-                    <div class="timeline-dot"></div>
-                    <div class="skill-card p-6 rounded-xl">
-                        <div class="flex flex-col md:flex-row justify-between mb-2">
-                            <h3 class="text-xl font-bold">Web Developer Intern</h3>
-                            <span class="text-secondary">2021-2022</span>
+            </div>
+            
+            <!-- Project 3 - Mobile Enhanced -->
+            <div class="project-card group">
+                <div class="project-card-inner relative w-full h-80 md:h-96">
+                    <div class="project-card-front absolute w-full h-full p-6 rounded-xl flex flex-col justify-between bg-gray-900 transition-all duration-500 group-hover:bg-gray-800">
+                        <div>
+                            <h3 class="text-xl font-bold mb-2">Hololink</h3>
+                            <p class="text-gray-300">AR collaboration platform for designers and developers</p>
                         </div>
-                        <h4 class="text-lg text-primary mb-3">Assam Technologies Guwahati, Assam</h4>
-                        <p class="text-gray-300">Designed next-generation predictive interfaces using HTML, CSS, JAVASCRIPT and REACT JS.</p>
+                        <div class="bg-gray-800 rounded-lg overflow-hidden h-40 transition-all duration-300 group-hover:h-32">
+                            <img src="https://placehold.co/600x400" alt="Mixed reality workspace" class="w-full h-full object-cover" />
+                        </div>
                     </div>
-                </div>
-                
-                <!-- Experience 3 -->
-                <div class="timeline-item">
-                    <div class="timeline-dot"></div>
-                    <div class="skill-card p-6 rounded-xl">
-                        <div class="flex flex-col md:flex-row justify-between mb-2">
-                            <h3 class="text-xl font-bold">Artificial Intelligence Engineer</h3>
-                            <span class="text-secondary">2023-present</span>
+                    <div class="project-card-back absolute w-full h-full p-6 rounded-xl flex flex-col justify-center bg-gray-800">
+                        <div class="mb-4">
+                            <h3 class="text-xl font-bold gradient-text">Technologies</h3>
+                            <div class="h-1 w-16 bg-secondary mt-2 mb-4"></div>
                         </div>
-                        <h4 class="text-lg text-primary mb-3">Nirvana Solutions (Freelancing) </h4>
-                        <p class="text-gray-300">Machine learning, Deep Learning python integrated 3 years of continuous coding in the field of AI</p>
+                        <ul class="space-y-2 text-gray-300">
+                            <li class="flex items-center">
+                                <span class="w-2 h-2 bg-secondary rounded-full mr-2"></span>
+                                Unity + ARKit/ARCore
+                            </li>
+                            <li class="flex items-center">
+                                <span class="w-2 h-2 bg-secondary rounded-full mr-2"></span>
+                                WebRTC + WebXR
+                            </li>
+                            <li class="flex items-center">
+                                <span class="w-2 h-2 bg-secondary rounded-full mr-2"></span>
+                                Spatial Computing
+                            </li>
+                        </ul>
+                        <button class="mt-6 px-4 py-2 rounded-lg btn-outline font-semibold transition transform group-hover:scale-105">View Case Study</button>
                     </div>
                 </div>
             </div>
         </div>
-    </section>
+    </div>
+</section>
     
     <!-- Contact Section -->
     <section id="contact" class="py-20 px-4">
@@ -1387,6 +1564,28 @@
     </button>
     
     <script>
+        // Mobile project cards toggle
+document.querySelectorAll('.project-card').forEach(card => {
+    if (window.innerWidth <= 768) {
+        const toggle = document.createElement('div');
+        toggle.className = 'project-card-mobile-toggle';
+        toggle.innerHTML = '<span>View Details</span> <i class="fas fa-chevron-down ml-1"></i>';
+        
+        toggle.addEventListener('click', () => {
+            card.classList.toggle('active');
+            const icon = toggle.querySelector('i');
+            if (card.classList.contains('active')) {
+                icon.classList.remove('fa-chevron-down');
+                icon.classList.add('fa-chevron-up');
+            } else {
+                icon.classList.remove('fa-chevron-up');
+                icon.classList.add('fa-chevron-down');
+            }
+        });
+        
+        card.appendChild(toggle);
+    }
+});
         // Loading animation
         window.addEventListener('load', function() {
             const loader = document.querySelector('.loader');
@@ -1738,6 +1937,104 @@
             // Set initial cursor
             carousel.style.cursor = 'grab';
         }
+        // Add this to your existing script
+document.addEventListener('DOMContentLoaded', function() {
+    // 3D Education Cards
+    const educationCards = document.querySelectorAll('.education-card-left, .education-card-right');
+    
+    educationCards.forEach(card => {
+        // For touch devices
+        card.addEventListener('touchstart', function() {
+            this.classList.add('active');
+        });
+        
+        card.addEventListener('touchend', function() {
+            setTimeout(() => {
+                this.classList.remove('active');
+            }, 500);
+        });
+    });
+
+    // 3D Project Showcase - Manual rotation for mobile
+    const project3d = document.querySelector('.project-3d-inner');
+    let isDragging = false;
+    let startX, startY;
+    let rotateY = 0;
+    let rotateX = 0;
+
+    project3d.addEventListener('mousedown', (e) => {
+        isDragging = true;
+        startX = e.clientX;
+        startY = e.clientY;
+    });
+
+    document.addEventListener('mousemove', (e) => {
+        if (!isDragging) return;
+        
+        const deltaX = e.clientX - startX;
+        const deltaY = e.clientY - startY;
+        
+        rotateY += deltaX * 0.5;
+        rotateX -= deltaY * 0.5;
+        
+        project3d.style.transform = `rotateY(${rotateY}deg) rotateX(${rotateX}deg)`;
+        
+        startX = e.clientX;
+        startY = e.clientY;
+    });
+
+    document.addEventListener('mouseup', () => {
+        isDragging = false;
+    });
+
+    // Medal animation
+const goldMedal = document.createElement('div');
+goldMedal.className = 'gold-medal absolute top-4 right-4 w-12 h-12 rounded-full bg-yellow-500 flex items-center justify-center text-white font-bold';
+goldMedal.innerHTML = '★';
+document.querySelector('.education-card-left .skill-card').appendChild(goldMedal);
+
+    // Touch events for mobile
+    project3d.addEventListener('touchstart', (e) => {
+        isDragging = true;
+        startX = e.touches[0].clientX;
+        startY = e.touches[0].clientY;
+        e.preventDefault();
+    });
+
+    document.addEventListener('touchmove', (e) => {
+        if (!isDragging) return;
+        
+        const deltaX = e.touches[0].clientX - startX;
+        const deltaY = e.touches[0].clientY - startY;
+        
+        rotateY += deltaX * 0.5;
+        rotateX -= deltaY * 0.5;
+        
+        project3d.style.transform = `rotateY(${rotateY}deg) rotateX(${rotateX}deg)`;
+        
+        startX = e.touches[0].clientX;
+        startY = e.touches[0].clientY;
+        e.preventDefault();
+    });
+
+    document.addEventListener('touchend', () => {
+        isDragging = false;
+    });
+
+    // View details button
+    const viewDetailsBtn = document.querySelector('.view-details-btn');
+    if (viewDetailsBtn) {
+        viewDetailsBtn.addEventListener('click', () => {
+            project3d.style.transform = 'rotateY(180deg)';
+        });
+        
+        viewDetailsBtn.addEventListener('touchstart', () => {
+            project3d.style.transform = 'rotateY(180deg)';
+        });
+    }
+});
+
+
     </script>
     <script src="https://unpkg.com/@popperjs/core@2"></script>
     <script src="https://unpkg.com/tippy.js@6"></script>
