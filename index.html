@@ -26,7 +26,13 @@
             overflow-x: hidden;
             scroll-behavior: smooth;
         }
-        
+
+        /* Utility helpers for custom colors with Tailwind */
+        .bg-primary { background-color: var(--primary); }
+        .bg-secondary { background-color: var(--secondary); }
+        .bg-dark { background-color: var(--dark); }
+        .text-secondary { color: var(--secondary); }
+
         /* Futuristic Navigation Styles */
         .navbar-container {
             position: fixed;
@@ -588,80 +594,79 @@
         }
         
         /* Loading Animation */
- /* Add this to your CSS section */
-.loader {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: var(--dark);
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    z-index: 9999;
-    transition: opacity 0.5s, visibility 0.5s;
-}
+        .loader {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: var(--dark);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            z-index: 9999;
+            transition: opacity 0.5s, visibility 0.5s;
+        }
 
-.loader-logo {
-    font-size: 3rem;
-    font-weight: 900;
-    margin-bottom: 2rem;
-    background: linear-gradient(90deg, var(--primary), var(--secondary), var(--accent));
-    -webkit-background-clip: text;
-    background-clip: text;
-    color: transparent;
-    animation: colorRotate 3s linear infinite;
-}
+        .loader-logo {
+            font-size: 3rem;
+            font-weight: 900;
+            margin-bottom: 2rem;
+            background: linear-gradient(90deg, var(--primary), var(--secondary), var(--accent));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            animation: colorRotate 3s linear infinite;
+        }
 
-.loader-container {
-    display: flex;
-    gap: 10px;
-}
+        .loader-container {
+            display: flex;
+            gap: 10px;
+        }
 
-.loader-dot {
-    width: 20px;
-    height: 20px;
-    border-radius: 50%;
-    background: var(--secondary);
-    animation: bounce 1.5s infinite ease-in-out;
-}
+        .loader-dot {
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background: var(--secondary);
+            animation: bounce 1.5s infinite ease-in-out;
+        }
 
-.loader-dot:nth-child(1) {
-    animation-delay: 0s;
-    background: var(--primary);
-}
+        .loader-dot:nth-child(1) {
+            animation-delay: 0s;
+            background: var(--primary);
+        }
 
-.loader-dot:nth-child(2) {
-    animation-delay: 0.2s;
-    background: var(--secondary);
-}
+        .loader-dot:nth-child(2) {
+            animation-delay: 0.2s;
+            background: var(--secondary);
+        }
 
-.loader-dot:nth-child(3) {
-    animation-delay: 0.4s;
-    background: var(--accent);
-}
+        .loader-dot:nth-child(3) {
+            animation-delay: 0.4s;
+            background: var(--accent);
+        }
 
-@keyframes bounce {
-    0%, 100% {
-        transform: translateY(0);
-    }
-    50% {
-        transform: translateY(-30px);
-    }
-}
+        @keyframes bounce {
+            0%, 100% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-30px);
+            }
+        }
 
-@keyframes colorRotate {
-    from {
-        filter: hue-rotate(0deg);
-    }
-    to {
-        filter: hue-rotate(360deg);
-    }
-}
+        @keyframes colorRotate {
+            from {
+                filter: hue-rotate(0deg);
+            }
+            to {
+                filter: hue-rotate(360deg);
+            }
+        }
         
-        /* Dark mode toggle */
+        /* Dark mode toggle (not used yet) */
         .theme-toggle {
             position: relative;
             width: 50px;
@@ -693,7 +698,8 @@
             background: var(--secondary);
         }
 
-         .skills-3d-container {
+        /* 3D Skills Carousel */
+        .skills-3d-container {
             perspective: 1000px;
             width: 100%;
             max-width: 1200px;
@@ -758,17 +764,18 @@
         
         /* Positioning each skill item in 3D space */
         .skill-item:nth-child(1) { transform: rotateY(0deg) translateZ(300px); }
-        .skill-item:nth-child(2) { transform: rotateY(40deg) translateZ(300px); }
-        .skill-item:nth-child(3) { transform: rotateY(80deg) translateZ(300px); }
-        .skill-item:nth-child(4) { transform: rotateY(120deg) translateZ(300px); }
-        .skill-item:nth-child(5) { transform: rotateY(160deg) translateZ(300px); }
-        .skill-item:nth-child(6) { transform: rotateY(200deg) translateZ(300px); }
-        .skill-item:nth-child(7) { transform: rotateY(240deg) translateZ(300px); }
-        .skill-item:nth-child(8) { transform: rotateY(280deg) translateZ(300px); }
-        .skill-item:nth-child(9) { transform: rotateY(320deg) translateZ(300px); }
-        .skill-item:nth-child(10) { transform: rotateY(360deg) translateZ(300px); }
+        .skill-item:nth-child(2) { transform: rotateY(36deg) translateZ(300px); }
+        .skill-item:nth-child(3) { transform: rotateY(72deg) translateZ(300px); }
+        .skill-item:nth-child(4) { transform: rotateY(108deg) translateZ(300px); }
+        .skill-item:nth-child(5) { transform: rotateY(144deg) translateZ(300px); }
+        .skill-item:nth-child(6) { transform: rotateY(180deg) translateZ(300px); }
+        .skill-item:nth-child(7) { transform: rotateY(216deg) translateZ(300px); }
+        .skill-item:nth-child(8) { transform: rotateY(252deg) translateZ(300px); }
+        .skill-item:nth-child(9) { transform: rotateY(288deg) translateZ(300px); }
+        .skill-item:nth-child(10) { transform: rotateY(324deg) translateZ(300px); }
+        .skill-item:nth-child(11) { transform: rotateY(360deg) translateZ(300px); }
         
-        /* Responsive adjustments */
+        /* Responsive adjustments for skills carousel */
         @media (max-width: 1024px) {
             .skills-carousel {
                 height: 350px;
@@ -786,21 +793,6 @@
                 margin-left: -75px;
                 margin-top: -75px;
             }
-            
-            .skill-item:nth-child(1) { transform: rotateY(0deg) rotateX(15deg) translateZ(200px); }
-            .skill-item:nth-child(2) { transform: rotateY(36deg) rotateX(15deg) translateZ(200px); }
-            .skill-item:nth-child(3) { transform: rotateY(72deg) rotateX(15deg) translateZ(200px); }
-            .skill-item:nth-child(4) { transform: rotateY(108deg) rotateX(15deg) translateZ(200px); }
-            .skill-item:nth-child(5) { transform: rotateY(144deg) rotateX(15deg) translateZ(200px); }
-            .skill-item:nth-child(6) { transform: rotateY(180deg) rotateX(15deg) translateZ(200px); }
-            .skill-item:nth-child(7) { transform: rotateY(216deg) rotateX(15deg) translateZ(200px); }
-            .skill-item:nth-child(8) { transform: rotateY(252deg) rotateX(15deg) translateZ(200px); }
-            .skill-item:nth-child(9) { transform: rotateY(288deg) rotateX(15deg) translateZ(200px); }
-            .skill-item:nth-child(10) { transform: rotateY(324deg) rotateX(15deg) translateZ(200px); }
-            
-            .skill-icon {
-                font-size: 3rem;
-            }
         }
         
         @media (max-width: 640px) {
@@ -815,10 +807,6 @@
                 margin-top: -60px;
             }
             
-            .skill-item:nth-child(n) {
-                transform: rotateY(calc(var(--i) * 36deg)) rotateX(15deg) translateZ(150px);
-            }
-            
             .skill-icon {
                 font-size: 2.5rem;
             }
@@ -828,161 +816,173 @@
             }
         }
 
-        /* Add these styles to your existing CSS */
-.education-timeline {
-    perspective: 1000px;
-}
+        /* Education / 3D effects */
+        .education-timeline {
+            perspective: 1000px;
+        }
 
-.education-card-left, .education-card-right {
-    transition: all 0.5s ease;
-    transform-style: preserve-3d;
-}
+        .education-card-left, .education-card-right {
+            transition: all 0.5s ease;
+            transform-style: preserve-3d;
+        }
 
-.education-card-left:hover, .education-card-left:active {
-    transform: translateX(20px) rotateY(5deg);
-}
+        .education-card-left:hover, .education-card-left:active {
+            transform: translateX(20px) rotateY(5deg);
+        }
 
-.education-card-right:hover, .education-card-right:active {
-    transform: translateX(-20px) rotateY(-5deg);
-}
+        .education-card-right:hover, .education-card-right:active {
+            transform: translateX(-20px) rotateY(-5deg);
+        }
 
-.glow-on-hover {
-    transition: box-shadow 0.3s ease;
-}
+        .glow-on-hover {
+            transition: box-shadow 0.3s ease;
+        }
 
-.glow-on-hover:hover, .glow-on-hover:active {
-    box-shadow: 0 0 20px rgba(0, 255, 209, 0.5);
-}
+        .glow-on-hover:hover, .glow-on-hover:active {
+            box-shadow: 0 0 20px rgba(0, 255, 209, 0.5);
+        }
 
-.transform-style-preserve-3d {
-    transform-style: preserve-3d;
-}
+        .transform-style-preserve-3d {
+            transform-style: preserve-3d;
+        }
 
-.backface-hidden {
-    backface-visibility: hidden;
-}
+        .backface-hidden {
+            backface-visibility: hidden;
+        }
 
-.project-3d-container {
-    perspective: 1000px;
-}
+        .project-3d-container {
+            perspective: 1000px;
+        }
 
-.project-3d-inner {
-    transform-style: preserve-3d;
-    transition: transform 1s;
-}
+        .project-3d-inner {
+            transform-style: preserve-3d;
+            transition: transform 1s;
+        }
 
-.project-3d-face {
-    backface-visibility: hidden;
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-}
+        .project-3d-face {
+            backface-visibility: hidden;
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
 
-.project-3d-container:hover .project-3d-inner {
-    transform: rotateY(180deg);
-}
+        .project-3d-container:hover .project-3d-inner {
+            transform: rotateY(180deg);
+        }
 
-/* Gold Medalist Badge */
-@keyframes medal-glow {
-    0% { box-shadow: 0 0 10px rgba(212, 175, 55, 0.5); }
-    50% { box-shadow: 0 0 20px rgba(212, 175, 55, 0.9); }
-    100% { box-shadow: 0 0 10px rgba(212, 175, 55, 0.5); }
-}
+        /* Gold Medalist Badge */
+        @keyframes medal-glow {
+            0% { box-shadow: 0 0 10px rgba(212, 175, 55, 0.5); }
+            50% { box-shadow: 0 0 20px rgba(212, 175, 55, 0.9); }
+            100% { box-shadow: 0 0 10px rgba(212, 175, 55, 0.5); }
+        }
 
-.gold-medal {
-    position: relative;
-    animation: medal-glow 2s infinite;
-}
+        .gold-medal {
+            position: relative;
+            animation: medal-glow 2s infinite;
+        }
 
-.gold-medal::after {
-    content: "★";
-    position: absolute;
-    top: -5px;
-    right: -5px;
-    color: gold;
-    font-size: 1.5rem;
-    text-shadow: 0 0 5px rgba(0,0,0,0.5);
-}
+        .gold-medal::after {
+            content: "★";
+            position: absolute;
+            top: -5px;
+            right: -5px;
+            color: gold;
+            font-size: 1.5rem;
+            text-shadow: 0 0 5px rgba(0,0,0,0.5);
+        }
 
-/* Mobile Project Cards */
-@media (max-width: 768px) {
-    .project-card {
-        perspective: none;
-    }
-    
-    .project-card-inner {
-        transform-style: flat;
-        height: auto;
-    }
-    
-    .project-card-front, 
-    .project-card-back {
-        position: relative;
-        height: auto;
-        transform: none !important;
-        backface-visibility: visible;
-    }
-    
-    .project-card-back {
-        display: none;
-    }
-    
-    .project-card:hover .project-card-front {
-        transform: none !important;
-    }
-    
-    /* Mobile toggle for project details */
-    .project-card-mobile-toggle {
-        display: block;
-        width: 100%;
-        padding: 0.5rem;
-        text-align: center;
-        background: rgba(110, 65, 226, 0.2);
-        border-top: 1px solid var(--primary);
-        cursor: pointer;
-    }
-    
-    .project-card.active .project-card-back {
-        display: block;
-    }
-}
+        /* Mobile Project Cards */
+        @media (max-width: 768px) {
+            .project-card {
+                perspective: none;
+            }
+            
+            .project-card-inner {
+                transform-style: flat;
+                height: auto;
+            }
+            
+            .project-card-front, 
+            .project-card-back {
+                position: relative;
+                height: auto;
+                transform: none !important;
+                backface-visibility: visible;
+            }
+            
+            .project-card-back {
+                display: none;
+            }
+            
+            .project-card:hover .project-card-front {
+                transform: none !important;
+            }
+            
+            /* Mobile toggle for project details */
+            .project-card-mobile-toggle {
+                display: block;
+                width: 100%;
+                padding: 0.5rem;
+                text-align: center;
+                background: rgba(110, 65, 226, 0.2);
+                border-top: 1px solid var(--primary);
+                cursor: pointer;
+            }
+            
+            .project-card.active .project-card-back {
+                display: block;
+            }
+        }
 
-/* Responsive adjustments */
-@media (max-width: 768px) {
-    .education-card-left:hover, .education-card-left:active,
-    .education-card-right:hover, .education-card-right:active {
-        transform: none;
-    }
-    
-    .education-timeline {
-        padding-left: 2rem;
-    }
-    
-    .education-timeline > div {
-        margin-left: 0;
-    }
-    
-    .project-3d-container {
-        height: 80vh;
-    }
-}
+        @media (max-width: 768px) {
+            .education-card-left:hover, .education-card-left:active,
+            .education-card-right:hover, .education-card-right:active {
+                transform: none;
+            }
+            
+            .education-timeline {
+                padding-left: 2rem;
+            }
+            
+            .education-timeline > div {
+                margin-left: 0;
+            }
+            
+            .project-3d-container {
+                height: 80vh;
+            }
+        }
 
+        /* Project iframe preview */
+        .project-iframe {
+            width: 100%;
+            height: 160px;
+            border: none;
+            background: #050816;
+        }
+
+        @media (min-width: 768px) {
+            .project-iframe {
+                height: 180px;
+            }
+        }
     </style>
 </head>
 <body>
     <!-- Loading Animation -->
-<div class="loader">
-    <div class="loader-logo">RAHUL BARUAH</div>
-    <div class="loader-container">
-        <div class="loader-dot"></div>
-        <div class="loader-dot"></div>
-        <div class="loader-dot"></div>
+    <div class="loader">
+        <div class="loader-logo">RAHUL BARUAH</div>
+        <div class="loader-container">
+            <div class="loader-dot"></div>
+            <div class="loader-dot"></div>
+            <div class="loader-dot"></div>
+        </div>
     </div>
-</div>
     
     <!-- Particles Background -->
     <div id="particles-js"></div>
@@ -992,7 +992,7 @@
         <div class="container mx-auto px-4">
             <div class="navbar-inner py-4">
                 <div class="flex justify-between items-center">
-                    <a href="#" class="text-2xl font-bold logo-glow">
+                    <a href="#home" class="text-2xl font-bold logo-glow">
                         Rahul<span class="gradient-text"><br>Baruah</span>
                     </a>
                     
@@ -1009,7 +1009,6 @@
                                 </svg>
                                 Download CV
                             </button>
-                            <span class="tooltip-text">Download Resume</span>
                         </a>
                     </div>
                     
@@ -1182,74 +1181,54 @@
         </div>
     </section>
     
-        <section id="skills-3d" class="py-20 px-4">
+    <!-- 3D Skills Carousel -->
+    <section id="skills-3d" class="py-20 px-4">
         <div class="container mx-auto">
             <h2 class="text-3xl md:text-4xl font-bold text-center mb-4">My <span class="gradient-text">Technical Skills</span></h2>
             <p class="text-center text-gray-300 max-w-2xl mx-auto mb-12">A rotating carousel of technologies I work with</p>
             
             <div class="skills-3d-container">
                 <div class="skills-carousel">
-                    <!-- HTML -->
                     <div class="skill-item" style="--i:0">
                         <i class="fab fa-html5 skill-icon" style="color: #E34F26"></i>
                         <span class="skill-name">HTML5</span>
                     </div>
-                    
-                    <!-- CSS -->
                     <div class="skill-item" style="--i:1">
                         <i class="fab fa-css3-alt skill-icon" style="color: #1572B6"></i>
                         <span class="skill-name">CSS3</span>
                     </div>
-                    
-                    <!-- JavaScript -->
                     <div class="skill-item" style="--i:2">
                         <i class="fab fa-js skill-icon" style="color: #F7DF1E"></i>
                         <span class="skill-name">JavaScript</span>
                     </div>
-                    
-                    <!-- React -->
                     <div class="skill-item" style="--i:3">
                         <i class="fab fa-react skill-icon" style="color: #61DAFB"></i>
                         <span class="skill-name">React</span>
                     </div>
-                    
-                    <!-- Python -->
                     <div class="skill-item" style="--i:4">
                         <i class="fab fa-python skill-icon" style="color: #3776AB"></i>
                         <span class="skill-name">Python</span>
                     </div>
-                    
-                    <!-- MySQL -->
                     <div class="skill-item" style="--i:5">
                         <i class="fas fa-database skill-icon" style="color: #4479A1"></i>
                         <span class="skill-name">MySQL</span>
                     </div>
-                    
-                    <!-- PHP -->
                     <div class="skill-item" style="--i:6">
                         <i class="fab fa-php skill-icon" style="color: #777BB4"></i>
                         <span class="skill-name">PHP</span>
                     </div>
-                    
-                    <!-- Machine Learning -->
                     <div class="skill-item" style="--i:7">
                         <i class="fas fa-brain skill-icon" style="color: #FF6B6B"></i>
                         <span class="skill-name">Machine Learning</span>
                     </div>
-                    
-                    <!-- Deep Learning -->
                     <div class="skill-item" style="--i:8">
                         <i class="fas fa-network-wired skill-icon" style="color: #00B4D8"></i>
                         <span class="skill-name">Deep Learning</span>
                     </div>
-                    
-                    <!-- Linux -->
                     <div class="skill-item" style="--i:9">
                         <i class="fab fa-linux skill-icon" style="color: #FCC624"></i>
                         <span class="skill-name">Linux</span>
                     </div>
-                    
-                    <!-- Kali Linux -->
                     <div class="skill-item" style="--i:10">
                         <i class="fas fa-shield-alt skill-icon" style="color: #557C94"></i>
                         <span class="skill-name">Kali Linux</span>
@@ -1259,209 +1238,263 @@
         </div>
     </section>
 
-<!-- Add this in the Experience section after your professional timeline -->
-<section id="education" class="py-20 px-4 bg-gradient-to-b from-dark to-gray-900">
-    <div class="container mx-auto">
-        <h2 class="text-3xl md:text-4xl font-bold text-center mb-4">Academic <span class="gradient-text">Excellence</span></h2>
-        <p class="text-center text-gray-300 max-w-2xl mx-auto mb-12">My educational journey in cutting-edge computer science</p>
+    <!-- Education Section -->
+    <section id="education" class="py-20 px-4 bg-gradient-to-b from-dark to-gray-900">
+        <div class="container mx-auto">
+            <h2 class="text-3xl md:text-4xl font-bold text-center mb-4">Academic <span class="gradient-text">Excellence</span></h2>
+            <p class="text-center text-gray-300 max-w-2xl mx-auto mb-12">My educational journey in cutting-edge computer science</p>
 
-        <!-- 3D Education Timeline -->
-        <div class="education-timeline max-w-4xl mx-auto relative">
-            <!-- Timeline Connector -->
-            <div class="absolute left-1/2 h-full w-1 bg-gradient-to-b from-primary to-secondary transform -translate-x-1/2 z-0"></div>
-            
-            <!-- MCA Card - Left Side -->
-            <div class="mb-16 relative z-10 education-card-left">
-                <div class="flex flex-col md:flex-row items-center">
-                    <!-- 3D Degree Badge -->
-                    <div class="w-32 h-32 md:w-40 md:h-40 mb-6 md:mb-0 md:mr-8 transform-style-preserve-3d transition-transform duration-1000 hover:rotate-y-180">
-                        <div class="w-full h-full relative transform-style-preserve-3d">
-                            <div class="absolute w-full h-full backface-hidden bg-primary rounded-full flex items-center justify-center shadow-xl border-4 border-secondary transform rotate-y-0">
-                                <i class="fas fa-brain text-4xl text-white"></i>
-                            </div>
-                            <div class="absolute w-full h-full backface-hidden bg-secondary rounded-full flex items-center justify-center shadow-xl border-4 border-primary transform rotate-y-180">
-                                <span class="text-xs font-bold text-dark text-center px-2">MCA in AI<br>Gold Medalist</span>
+            <div class="education-timeline max-w-4xl mx-auto relative">
+                <div class="absolute left-1/2 h-full w-1 bg-gradient-to-b from-primary to-secondary transform -translate-x-1/2 z-0"></div>
+                
+                <!-- MCA -->
+                <div class="mb-16 relative z-10 education-card-left">
+                    <div class="flex flex-col md:flex-row items-center">
+                        <div class="w-32 h-32 md:w-40 md:h-40 mb-6 md:mb-0 md:mr-8 transform-style-preserve-3d transition-transform duration-1000 hover:rotate-y-180">
+                            <div class="w-full h-full relative transform-style-preserve-3d">
+                                <div class="absolute w-full h-full backface-hidden bg-primary rounded-full flex items-center justify-center shadow-xl border-4 border-secondary transform rotate-y-0">
+                                    <i class="fas fa-brain text-4xl text-white"></i>
+                                </div>
+                                <div class="absolute w-full h-full backface-hidden bg-secondary rounded-full flex items-center justify-center shadow-xl border-4 border-primary transform rotate-y-180">
+                                    <span class="text-xs font-bold text-dark text-center px-2">MCA in AI<br>Gold Medalist</span>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                    
-                    <div class="flex-1 skill-card p-6 rounded-xl border-l-4 border-secondary glow-on-hover">
-                        <h3 class="text-2xl font-bold mb-2 gradient-text">Master of Computer Application</h3>
-                        <h4 class="text-lg text-secondary mb-3">Specialization in Artificial Intelligence</h4>
-                        <div class="flex flex-wrap gap-2 mb-4">
-                            <span class="px-3 py-1 rounded-full bg-primary bg-opacity-20 text-sm">Python</span>
-                            <span class="px-3 py-1 rounded-full bg-primary bg-opacity-20 text-sm">Machine Learning</span>
-                            <span class="px-3 py-1 rounded-full bg-primary bg-opacity-20 text-sm">Deep Learning</span>
-                            <span class="px-3 py-1 rounded-full bg-primary bg-opacity-20 text-sm">Neural Networks</span>
-                        </div>
-                        <div class="space-y-3">
-                            <div class="flex items-start">
-                                <div class="flex-shrink-0 h-6 w-6 text-secondary mr-2 mt-1">
-                                    <i class="fas fa-trophy"></i>
-                                </div>
-                                <p class="text-gray-300">Gold Medalist for academic excellence in AI research</p>
+                        
+                        <div class="flex-1 skill-card p-6 rounded-xl border-l-4 border-secondary glow-on-hover">
+                            <h3 class="text-2xl font-bold mb-2 gradient-text">Master of Computer Application</h3>
+                            <h4 class="text-lg text-secondary mb-3">Specialization in Artificial Intelligence</h4>
+                            <div class="flex flex-wrap gap-2 mb-4">
+                                <span class="px-3 py-1 rounded-full bg-primary bg-opacity-20 text-sm">Python</span>
+                                <span class="px-3 py-1 rounded-full bg-primary bg-opacity-20 text-sm">Machine Learning</span>
+                                <span class="px-3 py-1 rounded-full bg-primary bg-opacity-20 text-sm">Deep Learning</span>
+                                <span class="px-3 py-1 rounded-full bg-primary bg-opacity-20 text-sm">Neural Networks</span>
                             </div>
-                            <div class="flex items-start">
-                                <div class="flex-shrink-0 h-6 w-6 text-secondary mr-2 mt-1">
-                                    <i class="fas fa-file-alt"></i>
+                            <div class="space-y-3">
+                                <div class="flex items-start">
+                                    <div class="flex-shrink-0 h-6 w-6 text-secondary mr-2 mt-1">
+                                        <i class="fas fa-trophy"></i>
+                                    </div>
+                                    <p class="text-gray-300">Gold Medalist for academic excellence in AI research</p>
                                 </div>
-                                <p class="text-gray-300">Published paper on "Voice Recognition using Machine Learning" in International Journal of Advanced Computer Science</p>
+                                <div class="flex items-start">
+                                    <div class="flex-shrink-0 h-6 w-6 text-secondary mr-2 mt-1">
+                                        <i class="fas fa-file-alt"></i>
+                                    </div>
+                                    <p class="text-gray-300">Published paper on "Voice Recognition using Machine Learning" in International Journal of Advanced Computer Science</p>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
 
-            <!-- BCA Card - Right Side -->
-            <div class="mb-16 relative z-10 education-card-right">
-                <div class="flex flex-col md:flex-row items-center">
-                    <div class="flex-1 skill-card p-6 rounded-xl border-r-4 border-primary glow-on-hover order-1 md:order-2">
-                        <h3 class="text-2xl font-bold mb-2 gradient-text">Bachelor of Computer Application</h3>
-                        <h4 class="text-lg text-primary mb-3">Specialization in Web Development</h4>
-                        <div class="flex flex-wrap gap-2 mb-4">
-                            <span class="px-3 py-1 rounded-full bg-secondary bg-opacity-20 text-sm">HTML5</span>
-                            <span class="px-3 py-1 rounded-full bg-secondary bg-opacity-20 text-sm">CSS3</span>
-                            <span class="px-3 py-1 rounded-full bg-secondary bg-opacity-20 text-sm">JavaScript</span>
-                            <span class="px-3 py-1 rounded-full bg-secondary bg-opacity-20 text-sm">React</span>
-                            <span class="px-3 py-1 rounded-full bg-secondary bg-opacity-20 text-sm">PHP</span>
-                            <span class="px-3 py-1 rounded-full bg-secondary bg-opacity-20 text-sm">MySQL</span>
-                        </div>
-                        <p class="text-gray-300">Developed multiple full-stack web applications with modern frameworks and databases.</p>
-                    </div>
-                    
-                    <!-- 3D Degree Badge -->
-                    <div class="w-32 h-32 md:w-40 md:h-40 mb-6 md:mb-0 md:ml-8 transform-style-preserve-3d transition-transform duration-1000 hover:rotate-y-180 order-2 md:order-1">
-                        <div class="w-full h-full relative transform-style-preserve-3d">
-                            <div class="absolute w-full h-full backface-hidden bg-secondary rounded-full flex items-center justify-center shadow-xl border-4 border-primary transform rotate-y-0">
-                                <i class="fas fa-code text-4xl text-dark"></i>
+                <!-- BCA -->
+                <div class="mb-16 relative z-10 education-card-right">
+                    <div class="flex flex-col md:flex-row items-center">
+                        <div class="flex-1 skill-card p-6 rounded-xl border-r-4 border-primary glow-on-hover order-1 md:order-2">
+                            <h3 class="text-2xl font-bold mb-2 gradient-text">Bachelor of Computer Application</h3>
+                            <h4 class="text-lg text-primary mb-3">Specialization in Web Development</h4>
+                            <div class="flex flex-wrap gap-2 mb-4">
+                                <span class="px-3 py-1 rounded-full bg-secondary bg-opacity-20 text-sm">HTML5</span>
+                                <span class="px-3 py-1 rounded-full bg-secondary bg-opacity-20 text-sm">CSS3</span>
+                                <span class="px-3 py-1 rounded-full bg-secondary bg-opacity-20 text-sm">JavaScript</span>
+                                <span class="px-3 py-1 rounded-full bg-secondary bg-opacity-20 text-sm">React</span>
+                                <span class="px-3 py-1 rounded-full bg-secondary bg-opacity-20 text-sm">PHP</span>
+                                <span class="px-3 py-1 rounded-full bg-secondary bg-opacity-20 text-sm">MySQL</span>
                             </div>
-                            <div class="absolute w-full h-full backface-hidden bg-primary rounded-full flex items-center justify-center shadow-xl border-4 border-secondary transform rotate-y-180">
-                                <span class="text-xs font-bold text-white text-center px-2">BCA in Web Development</span>
+                            <p class="text-gray-300">Developed multiple full-stack web applications with modern frameworks and databases.</p>
+                        </div>
+                        
+                        <div class="w-32 h-32 md:w-40 md:h-40 mb-6 md:mb-0 md:ml-8 transform-style-preserve-3d transition-transform duration-1000 hover:rotate-y-180 order-2 md:order-1">
+                            <div class="w-full h-full relative transform-style-preserve-3d">
+                                <div class="absolute w-full h-full backface-hidden bg-secondary rounded-full flex items-center justify-center shadow-xl border-4 border-primary transform rotate-y-0">
+                                    <i class="fas fa-code text-4xl text-dark"></i>
+                                </div>
+                                <div class="absolute w-full h-full backface-hidden bg-primary rounded-full flex items-center justify-center shadow-xl border-4 border-secondary transform rotate-y-180">
+                                    <span class="text-xs font-bold text-white text-center px-2">BCA in Web Development</span>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
+    </section>
 
-        <!-- 3D Project Showcase -->
-       <!-- Projects Section -->
-<section id="projects" class="py-20 px-4">
-    <div class="container mx-auto">
-        <h2 class="text-3xl md:text-4xl font-bold text-center mb-4">Featured <span class="gradient-text">Projects</span></h2>
-        <p class="text-center text-gray-300 max-w-2xl mx-auto mb-12">Innovative solutions that showcase my multidisciplinary approach</p>
-        
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            <!-- Project 1 - Mobile Enhanced -->
-            <div class="project-card group">
-                <div class="project-card-inner relative w-full h-80 md:h-96">
-                    <div class="project-card-front absolute w-full h-full p-6 rounded-xl flex flex-col justify-between bg-gray-900 transition-all duration-500 group-hover:bg-gray-800">
-                        <div>
-                            <h3 class="text-xl font-bold mb-2">NeuralStyle AI</h3>
-                            <p class="text-gray-300">AI-powered design assistant that transforms sketches into production-ready UI code</p>
+    <!-- Featured Projects (Updated) -->
+    <section id="projects" class="py-20 px-4">
+        <div class="container mx-auto">
+            <h2 class="text-3xl md:text-4xl font-bold text-center mb-4">Featured <span class="gradient-text">Projects</span></h2>
+            <p class="text-center text-gray-300 max-w-2xl mx-auto mb-12">
+                Real-world products built end-to-end — from concept and architecture to deployment, with a strong focus on rural impact and user experience.
+            </p>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Project 1: Ayanant -->
+                <div class="project-card group">
+                    <div class="project-card-inner relative w-full h-80 md:h-96">
+                        <!-- Front -->
+                        <div class="project-card-front absolute w-full h-full p-6 rounded-xl flex flex-col justify-between bg-gray-900 transition-all duration-500 group-hover:bg-gray-800">
+                            <div>
+                                <h3 class="text-xl font-bold mb-2">Ayanant Ventures</h3>
+                                <p class="text-gray-300 text-sm mb-4">
+                                    Brand & consulting studio website for rural entrepreneurs and market development.
+                                </p>
+                                <p class="text-xs text-gray-400">
+                                    Role: Full-stack developer & UI/UX designer · Built in a record 7 days.
+                                </p>
+                            </div>
+                            <div class="bg-gray-800 rounded-lg overflow-hidden h-40 transition-all duration-300 group-hover:h-32">
+                                <!-- Live homepage preview -->
+                                <iframe 
+                                    src="https://www.ayanant.com/" 
+                                    class="project-iframe"
+                                    loading="lazy"
+                                    title="Ayanant homepage preview">
+                                </iframe>
+                            </div>
                         </div>
-                        <div class="bg-gray-800 rounded-lg overflow-hidden h-40 transition-all duration-300 group-hover:h-32">
-                            <img src="https://placehold.co/600x400" alt="AI interface" class="w-full h-full object-cover" />
+                        <!-- Back -->
+                        <div class="project-card-back absolute w-full h-full p-6 rounded-xl flex flex-col justify-between bg-gray-800">
+                            <div>
+                                <div class="mb-4">
+                                    <h3 class="text-xl font-bold gradient-text">Tech & Responsibilities</h3>
+                                    <div class="h-1 w-16 bg-secondary mt-2 mb-4"></div>
+                                </div>
+                                <ul class="space-y-2 text-gray-300 text-sm">
+                                    <li class="flex items-start">
+                                        <span class="w-2 h-2 bg-secondary rounded-full mr-2 mt-1"></span>
+                                        Python Flask backend with custom routing and Jinja templating.
+                                    </li>
+                                    <li class="flex items-start">
+                                        <span class="w-2 h-2 bg-secondary rounded-full mr-2 mt-1"></span>
+                                        Hand-crafted HTML/CSS/JS with advanced animations, scroll reveals, and hero sections.
+                                    </li>
+                                    <li class="flex items-start">
+                                        <span class="w-2 h-2 bg-secondary rounded-full mr-2 mt-1"></span>
+                                        Deployed on AWS Lightsail with Nginx & Gunicorn, domain mapping via GoDaddy.
+                                    </li>
+                                </ul>
+                            </div>
+                            <a href="https://www.ayanant.com/" target="_blank" rel="noopener noreferrer" class="mt-4 inline-block">
+                                <button class="w-full px-4 py-2 rounded-lg btn-outline font-semibold transition transform group-hover:scale-105">
+                                    Visit Ayanant.com
+                                </button>
+                            </a>
                         </div>
-                    </div>
-                    <div class="project-card-back absolute w-full h-full p-6 rounded-xl flex flex-col justify-center bg-gray-800">
-                        <div class="mb-4">
-                            <h3 class="text-xl font-bold gradient-text">Technologies</h3>
-                            <div class="h-1 w-16 bg-secondary mt-2 mb-4"></div>
-                        </div>
-                        <ul class="space-y-2 text-gray-300">
-                            <li class="flex items-center">
-                                <span class="w-2 h-2 bg-secondary rounded-full mr-2"></span>
-                                TensorFlow + Computer Vision
-                            </li>
-                            <li class="flex items-center">
-                                <span class="w-2 h-2 bg-secondary rounded-full mr-2"></span>
-                                React + Next.js
-                            </li>
-                            <li class="flex items-center">
-                                <span class="w-2 h-2 bg-secondary rounded-full mr-2"></span>
-                                GPT-4 Integration
-                            </li>
-                        </ul>
-                        <button class="mt-6 px-4 py-2 rounded-lg btn-outline font-semibold transition transform group-hover:scale-105">View Case Study</button>
                     </div>
                 </div>
-            </div>
-            
-            <!-- Project 2 - Mobile Enhanced -->
-            <div class="project-card group">
-                <div class="project-card-inner relative w-full h-80 md:h-96">
-                    <div class="project-card-front absolute w-full h-full p-6 rounded-xl flex flex-col justify-between bg-gray-900 transition-all duration-500 group-hover:bg-gray-800">
-                        <div>
-                            <h3 class="text-xl font-bold mb-2">Quantum UI</h3>
-                            <p class="text-gray-300">Dynamic design system that adapts to user behavior and preferences in real-time</p>
+                
+                <!-- Project 2: Sayanant -->
+                <div class="project-card group">
+                    <div class="project-card-inner relative w-full h-80 md:h-96">
+                        <!-- Front -->
+                        <div class="project-card-front absolute w-full h-full p-6 rounded-xl flex flex-col justify-between bg-gray-900 transition-all duration-500 group-hover:bg-gray-800">
+                            <div>
+                                <h3 class="text-xl font-bold mb-2">Sesta Development Services</h3>
+                                <p class="text-gray-300 text-sm mb-4">
+                                    Corporate website for SDS, showcasing development consulting, FPO strengthening, and livelihood programs.
+                                </p>
+                                <p class="text-xs text-gray-400">
+                                    Role: Lead developer & interaction designer for sayanant.com.
+                                </p>
+                            </div>
+                            <div class="bg-gray-800 rounded-lg overflow-hidden h-40 transition-all duration-300 group-hover:h-32">
+                                <iframe 
+                                    src="https://sayanant.com/" 
+                                    class="project-iframe"
+                                    loading="lazy"
+                                    title="Sayanant homepage preview">
+                                </iframe>
+                            </div>
                         </div>
-                        <div class="bg-gray-800 rounded-lg overflow-hidden h-40 transition-all duration-300 group-hover:h-32">
-                            <img src="https://placehold.co/600x400" alt="Interactive dashboard" class="w-full h-full object-cover" />
+                        <!-- Back -->
+                        <div class="project-card-back absolute w-full h-full p-6 rounded-xl flex flex-col justify-between bg-gray-800">
+                            <div>
+                                <div class="mb-4">
+                                    <h3 class="text-xl font-bold gradient-text">Tech & Responsibilities</h3>
+                                    <div class="h-1 w-16 bg-secondary mt-2 mb-4"></div>
+                                </div>
+                                <ul class="space-y-2 text-gray-300 text-sm">
+                                    <li class="flex items-start">
+                                        <span class="w-2 h-2 bg-secondary rounded-full mr-2 mt-1"></span>
+                                        Custom front-end built with HTML, Tailwind-style utility classes, and vanilla JS.
+                                    </li>
+                                    <li class="flex items-start">
+                                        <span class="w-2 h-2 bg-secondary rounded-full mr-2 mt-1"></span>
+                                        Flask-based routing and templating for scalable sections like services, insights, and careers.
+                                    </li>
+                                    <li class="flex items-start">
+                                        <span class="w-2 h-2 bg-secondary rounded-full mr-2 mt-1"></span>
+                                        Deployed on AWS with Nginx reverse proxy and HTTPS configuration.
+                                    </li>
+                                </ul>
+                            </div>
+                            <a href="https://sayanant.com/" target="_blank" rel="noopener noreferrer" class="mt-4 inline-block">
+                                <button class="w-full px-4 py-2 rounded-lg btn-outline font-semibold transition transform group-hover:scale-105">
+                                    Visit Sayanant.com
+                                </button>
+                            </a>
                         </div>
-                    </div>
-                    <div class="project-card-back absolute w-full h-full p-6 rounded-xl flex flex-col justify-center bg-gray-800">
-                        <div class="mb-4">
-                            <h3 class="text-xl font-bold gradient-text">Technologies</h3>
-                            <div class="h-1 w-16 bg-secondary mt-2 mb-4"></div>
-                        </div>
-                        <ul class="space-y-2 text-gray-300">
-                            <li class="flex items-center">
-                                <span class="w-2 h-2 bg-secondary rounded-full mr-2"></span>
-                                Reinforcement Learning
-                            </li>
-                            <li class="flex items-center">
-                                <span class="w-2 h-2 bg-secondary rounded-full mr-2"></span>
-                                Three.js + WebGL
-                            </li>
-                            <li class="flex items-center">
-                                <span class="w-2 h-2 bg-secondary rounded-full mr-2"></span>
-                                Behavioral Analytics
-                            </li>
-                        </ul>
-                        <button class="mt-6 px-4 py-2 rounded-lg btn-outline font-semibold transition transform group-hover:scale-105">View Case Study</button>
                     </div>
                 </div>
-            </div>
-            
-            <!-- Project 3 - Mobile Enhanced -->
-            <div class="project-card group">
-                <div class="project-card-inner relative w-full h-80 md:h-96">
-                    <div class="project-card-front absolute w-full h-full p-6 rounded-xl flex flex-col justify-between bg-gray-900 transition-all duration-500 group-hover:bg-gray-800">
-                        <div>
-                            <h3 class="text-xl font-bold mb-2">Hololink</h3>
-                            <p class="text-gray-300">AR collaboration platform for designers and developers</p>
+                
+                <!-- Project 3: Chhimphei Chicken -->
+                <div class="project-card group">
+                    <div class="project-card-inner relative w-full h-80 md:h-96">
+                        <!-- Front -->
+                        <div class="project-card-front absolute w-full h-full p-6 rounded-xl flex flex-col justify-between bg-gray-900 transition-all duration-500 group-hover:bg-gray-800">
+                            <div>
+                                <h3 class="text-xl font-bold mb-2">Chhimphei Chicken</h3>
+                                <p class="text-gray-300 text-sm mb-4">
+                                    Full-stack fresh meat e-commerce platform for Mizoram with multi-role dashboards.
+                                </p>
+                                <p class="text-xs text-gray-400">
+                                    Role: Architect & full-stack developer · Built end-to-end (UI, backend, deployment).
+                                </p>
+                            </div>
+                            <div class="bg-gray-800 rounded-lg overflow-hidden h-40 transition-all duration-300 group-hover:h-32">
+                                <iframe 
+                                    src="https://chhimpheichicken.com/" 
+                                    class="project-iframe"
+                                    loading="lazy"
+                                    title="Chhimphei Chicken homepage preview">
+                                </iframe>
+                            </div>
                         </div>
-                        <div class="bg-gray-800 rounded-lg overflow-hidden h-40 transition-all duration-300 group-hover:h-32">
-                            <img src="https://placehold.co/600x400" alt="Mixed reality workspace" class="w-full h-full object-cover" />
+                        <!-- Back -->
+                        <div class="project-card-back absolute w-full h-full p-6 rounded-xl flex flex-col justify-between bg-gray-800">
+                            <div>
+                                <div class="mb-4">
+                                    <h3 class="text-xl font-bold gradient-text">Tech & Responsibilities</h3>
+                                    <div class="h-1 w-16 bg-secondary mt-2 mb-4"></div>
+                                </div>
+                                <ul class="space-y-2 text-gray-300 text-sm">
+                                    <li class="flex items-start">
+                                        <span class="w-2 h-2 bg-secondary rounded-full mr-2 mt-1"></span>
+                                        Python Flask backend with blueprints, SQLAlchemy ORM, and role-based authentication.
+                                    </li>
+                                    <li class="flex items-start">
+                                        <span class="w-2 h-2 bg-secondary rounded-full mr-2 mt-1"></span>
+                                        Twilio Verify for OTP login, Razorpay/UPI integration placeholders, and order flow logic.
+                                    </li>
+                                    <li class="flex items-start">
+                                        <span class="w-2 h-2 bg-secondary rounded-full mr-2 mt-1"></span>
+                                        Separate dashboards for Admin, Seller, Customer, and Delivery Partner with real-time status.
+                                    </li>
+                                </ul>
+                            </div>
+                            <a href="https://chhimpheichicken.com/" target="_blank" rel="noopener noreferrer" class="mt-4 inline-block">
+                                <button class="w-full px-4 py-2 rounded-lg btn-outline font-semibold transition transform group-hover:scale-105">
+                                    Visit Chhimpheichicken.com
+                                </button>
+                            </a>
                         </div>
-                    </div>
-                    <div class="project-card-back absolute w-full h-full p-6 rounded-xl flex flex-col justify-center bg-gray-800">
-                        <div class="mb-4">
-                            <h3 class="text-xl font-bold gradient-text">Technologies</h3>
-                            <div class="h-1 w-16 bg-secondary mt-2 mb-4"></div>
-                        </div>
-                        <ul class="space-y-2 text-gray-300">
-                            <li class="flex items-center">
-                                <span class="w-2 h-2 bg-secondary rounded-full mr-2"></span>
-                                Unity + ARKit/ARCore
-                            </li>
-                            <li class="flex items-center">
-                                <span class="w-2 h-2 bg-secondary rounded-full mr-2"></span>
-                                WebRTC + WebXR
-                            </li>
-                            <li class="flex items-center">
-                                <span class="w-2 h-2 bg-secondary rounded-full mr-2"></span>
-                                Spatial Computing
-                            </li>
-                        </ul>
-                        <button class="mt-6 px-4 py-2 rounded-lg btn-outline font-semibold transition transform group-hover:scale-105">View Case Study</button>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
-</section>
+    </section>
     
     <!-- Contact Section -->
     <section id="contact" class="py-20 px-4">
@@ -1540,7 +1573,7 @@
         <div class="container mx-auto px-4">
             <div class="flex flex-col md:flex-row justify-between items-center">
                 <div class="mb-4 md:mb-0">
-                    <a href="#" class="text-xl font-bold gradient-text">Rahul<Br>Baruah</a>
+                    <a href="#home" class="text-xl font-bold gradient-text">Rahul<br>Baruah</a>
                     <p class="text-gray-400 mt-2">Where AI meets imagination.</p>
                 </div>
                 <div class="flex space-x-6">
@@ -1562,37 +1595,41 @@
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 10l7-7m0 0l7 7m-7-7v18" />
         </svg>
     </button>
-    
+
+    <!-- JS LIBRARIES FIRST -->
+    <script src="https://unpkg.com/@popperjs/core@2"></script>
+    <script src="https://unpkg.com/tippy.js@6"></script>
+
+    <!-- MAIN SCRIPT -->
     <script>
         // Mobile project cards toggle
-document.querySelectorAll('.project-card').forEach(card => {
-    if (window.innerWidth <= 768) {
-        const toggle = document.createElement('div');
-        toggle.className = 'project-card-mobile-toggle';
-        toggle.innerHTML = '<span>View Details</span> <i class="fas fa-chevron-down ml-1"></i>';
-        
-        toggle.addEventListener('click', () => {
-            card.classList.toggle('active');
-            const icon = toggle.querySelector('i');
-            if (card.classList.contains('active')) {
-                icon.classList.remove('fa-chevron-down');
-                icon.classList.add('fa-chevron-up');
-            } else {
-                icon.classList.remove('fa-chevron-up');
-                icon.classList.add('fa-chevron-down');
+        document.querySelectorAll('.project-card').forEach(card => {
+            if (window.innerWidth <= 768) {
+                const toggle = document.createElement('div');
+                toggle.className = 'project-card-mobile-toggle';
+                toggle.innerHTML = '<span>View Details</span> <i class="fas fa-chevron-down ml-1"></i>';
+                
+                toggle.addEventListener('click', () => {
+                    card.classList.toggle('active');
+                    const icon = toggle.querySelector('i');
+                    if (card.classList.contains('active')) {
+                        icon.classList.remove('fa-chevron-down');
+                        icon.classList.add('fa-chevron-up');
+                    } else {
+                        icon.classList.remove('fa-chevron-up');
+                        icon.classList.add('fa-chevron-down');
+                    }
+                });
+                
+                card.appendChild(toggle);
             }
         });
-        
-        card.appendChild(toggle);
-    }
-});
+
         // Loading animation
         window.addEventListener('load', function() {
             const loader = document.querySelector('.loader');
             setTimeout(() => {
                 loader.classList.add('hidden');
-                
-                // Show blobs after load
                 document.querySelectorAll('.blob').forEach(blob => {
                     blob.classList.add('visible');
                 });
@@ -1622,33 +1659,39 @@ document.querySelectorAll('.project-card').forEach(card => {
                 mobileMenu.classList.remove('open');
                 menuToggle.classList.remove('active');
                 document.body.style.overflow = '';
-                
-                // Update active state
-                document.querySelectorAll('.mobile-nav-link').forEach(item => {
-                    item.classList.remove('active');
-                });
-                link.classList.add('active');
             });
         });
         
-        // Update active nav link on scroll
-        const sections = document.querySelectorAll('section');
+        // Update active nav link on scroll (ID-based, safe)
+        const sectionElements = document.querySelectorAll('section[id]');
         const navLinks = document.querySelectorAll('.nav-link-future');
         const mobileNavLinks = document.querySelectorAll('.mobile-nav-link');
         
+        function setActiveLinks(currentId) {
+            navLinks.forEach(link => {
+                const href = link.getAttribute('href');
+                if (href === `#${currentId}`) link.classList.add('active');
+                else link.classList.remove('active');
+            });
+            mobileNavLinks.forEach(link => {
+                const href = link.getAttribute('href');
+                if (href === `#${currentId}`) link.classList.add('active');
+                else link.classList.remove('active');
+            });
+        }
+
         function updateActiveNavLink() {
-            let index = sections.length;
-            
-            while(--index && window.scrollY + 100 < sections[index].offsetTop) {}
-            
-            navLinks.forEach((link) => link.classList.remove('active'));
-            navLinks[index].classList.add('active');
-            
-            mobileNavLinks.forEach((link) => link.classList.remove('active'));
-            mobileNavLinks[index].classList.add('active');
+            let currentId = 'home';
+            sectionElements.forEach(section => {
+                if (window.scrollY + 120 >= section.offsetTop) {
+                    currentId = section.id;
+                }
+            });
+            setActiveLinks(currentId);
         }
         
         window.addEventListener('scroll', updateActiveNavLink);
+        updateActiveNavLink();
         
         // Navbar scroll effect
         window.addEventListener('scroll', function() {
@@ -1691,12 +1734,9 @@ document.querySelectorAll('.project-card').forEach(card => {
             submitText.classList.add('hidden');
             submitLoader.classList.remove('hidden');
             
-            // Simulate form submission
             setTimeout(() => {
                 submitText.classList.remove('hidden');
                 submitLoader.classList.add('hidden');
-                
-                // Show success message
                 alert('Thank you for your message! I will get back to you soon.');
                 contactForm.reset();
             }, 2000);
@@ -1718,9 +1758,9 @@ document.querySelectorAll('.project-card').forEach(card => {
         };
         
         window.addEventListener('scroll', animateOnScroll);
-        animateOnScroll(); // Run once on load
+        animateOnScroll();
         
-        // Initialize progress bar animations
+        // Progress bar animations
         function animateProgressBars() {
             const progressBars = document.querySelectorAll('.progress-bar');
             progressBars.forEach(bar => {
@@ -1732,18 +1772,16 @@ document.querySelectorAll('.project-card').forEach(card => {
             });
         }
         
-        // Run when skills section is in view
-        const skillsObserver = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    animateProgressBars();
-                    skillsObserver.unobserve(entry.target);
-                }
-            });
-        }, { threshold: 0.1 });
-        
         const skillsSection = document.getElementById('skills');
         if (skillsSection) {
+            const skillsObserver = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        animateProgressBars();
+                        skillsObserver.unobserve(entry.target);
+                    }
+                });
+            }, { threshold: 0.1 });
             skillsObserver.observe(skillsSection);
         }
         
@@ -1751,42 +1789,18 @@ document.querySelectorAll('.project-card').forEach(card => {
         document.addEventListener('DOMContentLoaded', function() {
             particlesJS('particles-js', {
                 particles: {
-                    number: {
-                        value: 80,
-                        density: {
-                            enable: true,
-                            value_area: 800
-                        }
-                    },
-                    color: {
-                        value: "#6E41E2"
-                    },
-                    shape: {
-                        type: "circle",
-                        stroke: {
-                            width: 0,
-                            color: "#000000"
-                        }
-                    },
+                    number: { value: 80, density: { enable: true, value_area: 800 } },
+                    color: { value: "#6E41E2" },
+                    shape: { type: "circle", stroke: { width: 0, color: "#000000" } },
                     opacity: {
                         value: 0.5,
                         random: true,
-                        anim: {
-                            enable: true,
-                            speed: 1,
-                            opacity_min: 0.1,
-                            sync: false
-                        }
+                        anim: { enable: true, speed: 1, opacity_min: 0.1, sync: false }
                     },
                     size: {
                         value: 3,
                         random: true,
-                        anim: {
-                            enable: true,
-                            speed: 2,
-                            size_min: 0.1,
-                            sync: false
-                        }
+                        anim: { enable: true, speed: 2, size_min: 0.1, sync: false }
                     },
                     line_linked: {
                         enable: true,
@@ -1802,241 +1816,188 @@ document.querySelectorAll('.project-card').forEach(card => {
                         random: true,
                         straight: false,
                         out_mode: "out",
-                        bounce: false,
-                        attract: {
-                            enable: false,
-                            rotateX: 600,
-                            rotateY: 1200
-                        }
+                        bounce: false
                     }
                 },
                 interactivity: {
                     detect_on: "canvas",
                     events: {
-                        onhover: {
-                            enable: true,
-                            mode: "grab"
-                        },
-                        onclick: {
-                            enable: true,
-                            mode: "push"
-                        },
+                        onhover: { enable: true, mode: "grab" },
+                        onclick: { enable: true, mode: "push" },
                         resize: true
                     },
                     modes: {
-                        grab: {
-                            distance: 140,
-                            line_linked: {
-                                opacity: 1
-                            }
-                        },
-                        bubble: {
-                            distance: 400,
-                            size: 40,
-                            duration: 2,
-                            opacity: 8,
-                            speed: 3
-                        },
-                        repulse: {
-                            distance: 200,
-                            duration: 0.4
-                        },
-                        push: {
-                            particles_nb: 4
-                        },
-                        remove: {
-                            particles_nb: 2
-                        }
+                        grab: { distance: 140, line_linked: { opacity: 1 } },
+                        repulse: { distance: 200, duration: 0.4 },
+                        push: { particles_nb: 4 }
                     }
                 },
                 retina_detect: true
             });
         });
         
-        // Smooth scrolling for anchor links
+        // Smooth scrolling for anchor links (safe)
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                
-                document.querySelector(this.getAttribute('href')).scrollIntoView({
-                    behavior: 'smooth'
-                });
-            });
-        });
-        
-        // Initialize tooltips
-        tippy('.tooltip', {
-            content: 'Download Resume',
-            placement: 'bottom',
-            animation: 'scale',
-            theme: 'gradient',
-        });
-
-         // Pause animation on hover
-        const carousel = document.querySelector('.skills-carousel');
-        
-        carousel.addEventListener('mouseenter', () => {
-            carousel.style.animationPlayState = 'paused';
-        });
-        
-        carousel.addEventListener('mouseleave', () => {
-            carousel.style.animationPlayState = 'running';
-        });
-        
-        // For touch devices
-        carousel.addEventListener('touchstart', () => {
-            carousel.style.animationPlayState = 'paused';
-        });
-        
-        carousel.addEventListener('touchend', () => {
-            carousel.style.animationPlayState = 'running';
-        });
-        
-        // Make carousel interactive on desktop
-        if (window.innerWidth > 768) {
-            let isDragging = false;
-            let startX, startY;
-            let rotationY = 0;
-            let rotationX = 0;
-            const sensitivity = 0.5;
-            
-            carousel.addEventListener('mousedown', (e) => {
-                isDragging = true;
-                startX = e.clientX;
-                startY = e.clientY;
-                carousel.style.animation = 'none';
-                carousel.style.cursor = 'grabbing';
-            });
-            
-            document.addEventListener('mousemove', (e) => {
-                if (!isDragging) return;
-                
-                const deltaX = e.clientX - startX;
-                const deltaY = e.clientY - startY;
-                
-                rotationY += deltaX * sensitivity;
-                rotationX -= deltaY * sensitivity * 0.5;
-                
-                carousel.style.transform = `rotateY(${rotationY}deg) rotateX(${rotationX}deg)`;
-                
-                startX = e.clientX;
-                startY = e.clientY;
-            });
-            
-            document.addEventListener('mouseup', () => {
-                if (isDragging) {
-                    isDragging = false;
-                    carousel.style.cursor = 'grab';
-                    // Return to auto-rotation after a delay
-                    setTimeout(() => {
-                        carousel.style.animation = 'rotate 30s infinite linear';
-                    }, 3000);
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    e.preventDefault();
+                    target.scrollIntoView({ behavior: 'smooth' });
                 }
             });
-            
-            // Set initial cursor
-            carousel.style.cursor = 'grab';
+        });
+        
+        // Initialize tooltips (guarded)
+        if (window.tippy) {
+            tippy('.tooltip', {
+                content: 'Download Resume',
+                placement: 'bottom',
+                animation: 'scale',
+                theme: 'gradient',
+            });
         }
-        // Add this to your existing script
-document.addEventListener('DOMContentLoaded', function() {
-    // 3D Education Cards
-    const educationCards = document.querySelectorAll('.education-card-left, .education-card-right');
-    
-    educationCards.forEach(card => {
-        // For touch devices
-        card.addEventListener('touchstart', function() {
-            this.classList.add('active');
+        
+        // Skills carousel interactions
+        const carousel = document.querySelector('.skills-carousel');
+        if (carousel) {
+            carousel.addEventListener('mouseenter', () => {
+                carousel.style.animationPlayState = 'paused';
+            });
+            carousel.addEventListener('mouseleave', () => {
+                carousel.style.animationPlayState = 'running';
+            });
+            carousel.addEventListener('touchstart', () => {
+                carousel.style.animationPlayState = 'paused';
+            });
+            carousel.addEventListener('touchend', () => {
+                carousel.style.animationPlayState = 'running';
+            });
+            
+            if (window.innerWidth > 768) {
+                let isDragging = false;
+                let startX, startY;
+                let rotationY = 0;
+                let rotationX = 0;
+                const sensitivity = 0.5;
+                
+                carousel.addEventListener('mousedown', (e) => {
+                    isDragging = true;
+                    startX = e.clientX;
+                    startY = e.clientY;
+                    carousel.style.animation = 'none';
+                    carousel.style.cursor = 'grabbing';
+                });
+                
+                document.addEventListener('mousemove', (e) => {
+                    if (!isDragging) return;
+                    const deltaX = e.clientX - startX;
+                    const deltaY = e.clientY - startY;
+                    rotationY += deltaX * sensitivity;
+                    rotationX -= deltaY * sensitivity * 0.5;
+                    carousel.style.transform = `rotateY(${rotationY}deg) rotateX(${rotationX}deg)`;
+                    startX = e.clientX;
+                    startY = e.clientY;
+                });
+                
+                document.addEventListener('mouseup', () => {
+                    if (isDragging) {
+                        isDragging = false;
+                        carousel.style.cursor = 'grab';
+                        setTimeout(() => {
+                            carousel.style.animation = 'rotate 30s infinite linear';
+                        }, 3000);
+                    }
+                });
+                
+                carousel.style.cursor = 'grab';
+            }
+        }
+
+        // Extra interactions (education + 3D project guard)
+        document.addEventListener('DOMContentLoaded', function() {
+            const educationCards = document.querySelectorAll('.education-card-left, .education-card-right');
+            educationCards.forEach(card => {
+                card.addEventListener('touchstart', function() {
+                    this.classList.add('active');
+                });
+                card.addEventListener('touchend', function() {
+                    setTimeout(() => {
+                        this.classList.remove('active');
+                    }, 500);
+                });
+            });
+
+            const project3d = document.querySelector('.project-3d-inner');
+            if (project3d) {
+                let isDragging = false;
+                let startX, startY;
+                let rotateY = 0;
+                let rotateX = 0;
+
+                project3d.addEventListener('mousedown', (e) => {
+                    isDragging = true;
+                    startX = e.clientX;
+                    startY = e.clientY;
+                });
+
+                document.addEventListener('mousemove', (e) => {
+                    if (!isDragging) return;
+                    const deltaX = e.clientX - startX;
+                    const deltaY = e.clientY - startY;
+                    rotateY += deltaX * 0.5;
+                    rotateX -= deltaY * 0.5;
+                    project3d.style.transform = `rotateY(${rotateY}deg) rotateX(${rotateX}deg)`;
+                    startX = e.clientX;
+                    startY = e.clientY;
+                });
+
+                document.addEventListener('mouseup', () => {
+                    isDragging = false;
+                });
+
+                project3d.addEventListener('touchstart', (e) => {
+                    isDragging = true;
+                    startX = e.touches[0].clientX;
+                    startY = e.touches[0].clientY;
+                    e.preventDefault();
+                });
+
+                document.addEventListener('touchmove', (e) => {
+                    if (!isDragging) return;
+                    const deltaX = e.touches[0].clientX - startX;
+                    const deltaY = e.touches[0].clientY - startY;
+                    rotateY += deltaX * 0.5;
+                    rotateX -= deltaY * 0.5;
+                    project3d.style.transform = `rotateY(${rotateY}deg) rotateX(${rotateX}deg)`;
+                    startX = e.touches[0].clientX;
+                    startY = e.touches[0].clientY;
+                    e.preventDefault();
+                });
+
+                document.addEventListener('touchend', () => {
+                    isDragging = false;
+                });
+
+                const viewDetailsBtn = document.querySelector('.view-details-btn');
+                if (viewDetailsBtn) {
+                    viewDetailsBtn.addEventListener('click', () => {
+                        project3d.style.transform = 'rotateY(180deg)';
+                    });
+                    viewDetailsBtn.addEventListener('touchstart', () => {
+                        project3d.style.transform = 'rotateY(180deg)';
+                    });
+                }
+            }
+
+            // Medal badge
+            const leftCardSkill = document.querySelector('.education-card-left .skill-card');
+            if (leftCardSkill) {
+                const goldMedal = document.createElement('div');
+                goldMedal.className = 'gold-medal absolute top-4 right-4 w-12 h-12 rounded-full bg-yellow-500 flex items-center justify-center text-white font-bold';
+                goldMedal.innerHTML = '★';
+                leftCardSkill.appendChild(goldMedal);
+            }
         });
-        
-        card.addEventListener('touchend', function() {
-            setTimeout(() => {
-                this.classList.remove('active');
-            }, 500);
-        });
-    });
-
-    // 3D Project Showcase - Manual rotation for mobile
-    const project3d = document.querySelector('.project-3d-inner');
-    let isDragging = false;
-    let startX, startY;
-    let rotateY = 0;
-    let rotateX = 0;
-
-    project3d.addEventListener('mousedown', (e) => {
-        isDragging = true;
-        startX = e.clientX;
-        startY = e.clientY;
-    });
-
-    document.addEventListener('mousemove', (e) => {
-        if (!isDragging) return;
-        
-        const deltaX = e.clientX - startX;
-        const deltaY = e.clientY - startY;
-        
-        rotateY += deltaX * 0.5;
-        rotateX -= deltaY * 0.5;
-        
-        project3d.style.transform = `rotateY(${rotateY}deg) rotateX(${rotateX}deg)`;
-        
-        startX = e.clientX;
-        startY = e.clientY;
-    });
-
-    document.addEventListener('mouseup', () => {
-        isDragging = false;
-    });
-
-    // Medal animation
-const goldMedal = document.createElement('div');
-goldMedal.className = 'gold-medal absolute top-4 right-4 w-12 h-12 rounded-full bg-yellow-500 flex items-center justify-center text-white font-bold';
-goldMedal.innerHTML = '★';
-document.querySelector('.education-card-left .skill-card').appendChild(goldMedal);
-
-    // Touch events for mobile
-    project3d.addEventListener('touchstart', (e) => {
-        isDragging = true;
-        startX = e.touches[0].clientX;
-        startY = e.touches[0].clientY;
-        e.preventDefault();
-    });
-
-    document.addEventListener('touchmove', (e) => {
-        if (!isDragging) return;
-        
-        const deltaX = e.touches[0].clientX - startX;
-        const deltaY = e.touches[0].clientY - startY;
-        
-        rotateY += deltaX * 0.5;
-        rotateX -= deltaY * 0.5;
-        
-        project3d.style.transform = `rotateY(${rotateY}deg) rotateX(${rotateX}deg)`;
-        
-        startX = e.touches[0].clientX;
-        startY = e.touches[0].clientY;
-        e.preventDefault();
-    });
-
-    document.addEventListener('touchend', () => {
-        isDragging = false;
-    });
-
-    // View details button
-    const viewDetailsBtn = document.querySelector('.view-details-btn');
-    if (viewDetailsBtn) {
-        viewDetailsBtn.addEventListener('click', () => {
-            project3d.style.transform = 'rotateY(180deg)';
-        });
-        
-        viewDetailsBtn.addEventListener('touchstart', () => {
-            project3d.style.transform = 'rotateY(180deg)';
-        });
-    }
-});
-
-
     </script>
-    <script src="https://unpkg.com/@popperjs/core@2"></script>
-    <script src="https://unpkg.com/tippy.js@6"></script>
 </body>
 </html>
